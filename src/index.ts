@@ -7,7 +7,7 @@ const GRAPHQL_ENDPOINT: string = "/graphql";
 
 const appOptions: Options = {
   port: PORT,
-  playground: PLAYGROUND,
+  playground: PLAYGROUND_ENDPOINT,
   endpoint: GRAPHQL_ENDPOINT,
 };
 
