@@ -1,14 +1,23 @@
-export const typeDefs = [
-  "type Query {\n  sayBye: String!\n  sayHello: Greeting!\n}\n\ntype Greeting {\n  text: String!\n  error: Boolean!\n}\n",
-];
+export const typeDefs = ["type User {\n  id: Int!\n  name: String!\n  email: String!\n  verifiedEmail: Boolean!\n  password: String!\n  sex: String!\n  phone: String!\n  address: String!\n  detailedAddress: String!\n  dateOfBirth: String!\n  isSmsReception: Boolean!\n  isEmailRecption: Boolean!\n  createdAt: String!\n  updatedAt: String!\n}\n\ntype Query {\n  user: User\n}\n"];
 /* tslint:disable */
 
 export interface Query {
-  sayBye: string;
-  sayHello: Greeting;
+  user: User | null;
 }
 
-export interface Greeting {
-  text: string;
-  error: boolean;
+export interface User {
+  id: number;
+  name: string;
+  email: string;
+  verifiedEmail: boolean;
+  password: string;
+  sex: string;
+  phone: string;
+  address: string;
+  detailedAddress: string;
+  dateOfBirth: string;
+  isSmsReception: boolean;
+  isEmailRecption: boolean;
+  createdAt: string;
+  updatedAt: string;
 }
