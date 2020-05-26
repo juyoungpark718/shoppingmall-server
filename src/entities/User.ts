@@ -26,6 +26,9 @@ class User extends BaseEntity {
   @Column({ type: "boolean", default: false })
   verifiedEmail: boolean;
 
+  @Column({ type: "boolean", default: false })
+  verifiedPhone: boolean;
+
   @Column()
   password: string;
 
@@ -33,7 +36,7 @@ class User extends BaseEntity {
   sex: string;
 
   @Column({ type: "text" })
-  phone: string;
+  phoneNumber: string;
 
   @Column({ type: "text" })
   address: string;

@@ -3,16 +3,17 @@ type User {
   name: String!
   email: String!
   verifiedEmail: Boolean!
+  verifiedPhone: Boolean!
   password: String!
   sex: String!
-  phone: String!
+  phoneNumber: String!
   address: String!
   detailedAddress: String!
   dateOfBirth: String!
   isSmsReception: Boolean!
   isEmailRecption: Boolean!
   createdAt: String!
-  updatedAt: String!
+  updatedAt: String
 }
 
 type Query {
