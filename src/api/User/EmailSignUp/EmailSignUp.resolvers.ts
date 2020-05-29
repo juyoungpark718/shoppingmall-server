@@ -10,7 +10,7 @@ const resolvers: Resolvers = {
     ): Promise<EmailSignUpResponse> => {
       const { email } = args;
       try {
-        const exsitingUser = User.findOne({ email });
+        const exsitingUser = await User.findOne({ email });
         if (exsitingUser) {
           return {
             ok: false,

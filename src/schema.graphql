@@ -5,9 +5,11 @@ type AddProductResponse {
 
 type Mutation {
   AddProduct(name: String!, price: Int!, description: String!): AddProductResponse!
+  CompleteEmailVerification(email: String!, key: String!): CompleteEmailVerificationResponse!
   CompletePhoneVerification(phoneNumber: String!, key: String!): CompletePhoneVerificationResponse!
   EmailSignIn(email: String!, password: String!): EmailSignInResponse!
-  EmailSignUp(name: String!, email: String!, password: String!, sex: String!, phone: String!, address: String!, detailedAddress: String!, dateOfBirth: String!): EmailSignUpResponse!
+  EmailSignUp(name: String!, email: String!, password: String!, sex: String!, phoneNumber: String!, address: String!, detailedAddress: String!, dateOfBirth: String!): EmailSignUpResponse!
+  StartEmailVerification(email: String!): StartEmailVerificationResponse!
   StartPhoneVerification(phoneNumber: String!): StartPhoneVerificationResponse!
 }
 
@@ -22,7 +24,14 @@ type Product {
 
 type Query {
   product: Product
+  GetUsers: GetUsersReponse!
   user: User
+}
+
+type CompleteEmailVerificationResponse {
+  ok: Boolean!
+  error: String
+  token: String
 }
 
 type CompletePhoneVerificationResponse {
@@ -43,6 +52,12 @@ type EmailSignUpResponse {
   token: String
 }
 
+type GetUsersReponse {
+  ok: Boolean!
+  error: String
+  users: [User]
+}
+
 type User {
   id: Int!
   name: String!
@@ -59,6 +74,11 @@ type User {
   isEmailRecption: Boolean!
   createdAt: String!
   updatedAt: String
+}
+
+type StartEmailVerificationResponse {
+  ok: Boolean!
+  error: String
 }
 
 type StartPhoneVerificationResponse {
