@@ -1,4 +1,4 @@
-export const typeDefs = ["type AddProductResponse {\n  ok: Boolean!\n  error: String!\n}\n\ntype Mutation {\n  AddProduct(name: String!, price: Int!, description: String!): AddProductResponse!\n  CompleteEmailVerification(email: String!, key: String!): CompleteEmailVerificationResponse!\n  CompletePhoneVerification(phoneNumber: String!, key: String!): CompletePhoneVerificationResponse!\n  EmailSignIn(email: String!, password: String!): EmailSignInResponse!\n  EmailSignUp(name: String!, email: String!, password: String!, sex: String!, phoneNumber: String!, address: String!, detailedAddress: String!, dateOfBirth: String!): EmailSignUpResponse!\n  StartEmailVerification(email: String!): StartEmailVerificationResponse!\n  StartPhoneVerification(phoneNumber: String!): StartPhoneVerificationResponse!\n}\n\ntype Product {\n  id: Int!\n  name: String!\n  price: Int!\n  description: String!\n  createdAt: String!\n  updatedAt: String\n}\n\ntype Query {\n  product: Product\n  GetUsers: GetUsersReponse!\n  user: User\n}\n\ntype CompleteEmailVerificationResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype CompletePhoneVerificationResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype EmailSignInResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype EmailSignUpResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype GetUsersReponse {\n  ok: Boolean!\n  error: String\n  users: [User]\n}\n\ntype User {\n  id: Int!\n  name: String!\n  email: String!\n  verifiedEmail: Boolean!\n  verifiedPhone: Boolean!\n  password: String!\n  sex: String!\n  phoneNumber: String!\n  address: String!\n  detailedAddress: String!\n  dateOfBirth: String!\n  isSmsReception: Boolean!\n  isEmailRecption: Boolean!\n  createdAt: String!\n  updatedAt: String\n}\n\ntype StartEmailVerificationResponse {\n  ok: Boolean!\n  error: String\n}\n\ntype StartPhoneVerificationResponse {\n  ok: Boolean!\n  error: String\n}\n\ntype Verification {\n  id: Int!\n  target: String!\n  payload: String!\n  key: String!\n  verified: Boolean!\n  createdAt: String!\n  updatedAt: String\n}\n"];
+export const typeDefs = ["type AddProductResponse {\n  ok: Boolean!\n  error: String\n}\n\ntype Mutation {\n  AddProduct(name: String!, price: Int!, description: String!): AddProductResponse!\n  DeleteProduct(id: Int!): DeleteProductResponse!\n  EditProduct(id: Int!, name: String, price: String, description: String): EditProductResponse!\n  CompleteEmailVerification(email: String!, key: String!): CompleteEmailVerificationResponse!\n  CompletePhoneVerification(phoneNumber: String!, key: String!): CompletePhoneVerificationResponse!\n  EmailSignIn(email: String!, password: String!): EmailSignInResponse!\n  EmailSignUp(name: String!, email: String!, password: String!, sex: String!, phoneNumber: String!, address: String!, detailedAddress: String!, dateOfBirth: String!): EmailSignUpResponse!\n  StartEmailVerification(email: String!): StartEmailVerificationResponse!\n  StartPhoneVerification(phoneNumber: String!): StartPhoneVerificationResponse!\n}\n\ntype DeleteProductResponse {\n  ok: Boolean!\n  error: String\n}\n\ntype EditProductResponse {\n  ok: Boolean!\n  error: String\n}\n\ntype Product {\n  id: Int!\n  name: String!\n  price: Int!\n  description: String!\n  createdAt: String!\n  updatedAt: String\n}\n\ntype Query {\n  product: Product\n  GetUsers: GetUsersReponse!\n  user: User\n}\n\ntype CompleteEmailVerificationResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype CompletePhoneVerificationResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype EmailSignInResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype EmailSignUpResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype GetUsersReponse {\n  ok: Boolean!\n  error: String\n  users: [User]\n}\n\ntype User {\n  id: Int!\n  name: String!\n  email: String!\n  verifiedEmail: Boolean!\n  verifiedPhone: Boolean!\n  password: String!\n  sex: String!\n  phoneNumber: String!\n  address: String!\n  detailedAddress: String!\n  dateOfBirth: String!\n  isSmsReception: Boolean!\n  isEmailRecption: Boolean!\n  createdAt: String!\n  updatedAt: String\n}\n\ntype StartEmailVerificationResponse {\n  ok: Boolean!\n  error: String\n}\n\ntype StartPhoneVerificationResponse {\n  ok: Boolean!\n  error: String\n}\n\ntype Verification {\n  id: Int!\n  target: String!\n  payload: String!\n  key: String!\n  verified: Boolean!\n  createdAt: String!\n  updatedAt: String\n}\n"];
 /* tslint:disable */
 
 export interface Query {
@@ -42,6 +42,8 @@ export interface User {
 
 export interface Mutation {
   AddProduct: AddProductResponse;
+  DeleteProduct: DeleteProductResponse;
+  EditProduct: EditProductResponse;
   CompleteEmailVerification: CompleteEmailVerificationResponse;
   CompletePhoneVerification: CompletePhoneVerificationResponse;
   EmailSignIn: EmailSignInResponse;
@@ -54,6 +56,17 @@ export interface AddProductMutationArgs {
   name: string;
   price: number;
   description: string;
+}
+
+export interface DeleteProductMutationArgs {
+  id: number;
+}
+
+export interface EditProductMutationArgs {
+  id: number;
+  name: string | null;
+  price: string | null;
+  description: string | null;
 }
 
 export interface CompleteEmailVerificationMutationArgs {
@@ -92,7 +105,17 @@ export interface StartPhoneVerificationMutationArgs {
 
 export interface AddProductResponse {
   ok: boolean;
-  error: string;
+  error: string | null;
+}
+
+export interface DeleteProductResponse {
+  ok: boolean;
+  error: string | null;
+}
+
+export interface EditProductResponse {
+  ok: boolean;
+  error: string | null;
 }
 
 export interface CompleteEmailVerificationResponse {

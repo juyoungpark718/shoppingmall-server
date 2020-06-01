@@ -1,6 +1,6 @@
 type AddProductResponse {
   ok: Boolean!
-  error: String!
+  error: String
 }
 
 type Mutation {

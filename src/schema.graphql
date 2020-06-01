@@ -1,16 +1,28 @@
 type AddProductResponse {
   ok: Boolean!
-  error: String!
+  error: String
 }
 
 type Mutation {
   AddProduct(name: String!, price: Int!, description: String!): AddProductResponse!
+  DeleteProduct(id: Int!): DeleteProductResponse!
+  EditProduct(id: Int!, name: String, price: String, description: String): EditProductResponse!
   CompleteEmailVerification(email: String!, key: String!): CompleteEmailVerificationResponse!
   CompletePhoneVerification(phoneNumber: String!, key: String!): CompletePhoneVerificationResponse!
   EmailSignIn(email: String!, password: String!): EmailSignInResponse!
   EmailSignUp(name: String!, email: String!, password: String!, sex: String!, phoneNumber: String!, address: String!, detailedAddress: String!, dateOfBirth: String!): EmailSignUpResponse!
   StartEmailVerification(email: String!): StartEmailVerificationResponse!
   StartPhoneVerification(phoneNumber: String!): StartPhoneVerificationResponse!
+}
+
+type DeleteProductResponse {
+  ok: Boolean!
+  error: String
+}
+
+type EditProductResponse {
+  ok: Boolean!
+  error: String
 }
 
 type Product {

@@ -7,9 +7,12 @@ import {
   UpdateDateColumn,
   BeforeInsert,
   BeforeUpdate,
+  OneToMany,
 } from "typeorm";
 import { IsEmail } from "class-validator";
 import { Md5 } from "ts-md5";
+import Chat from "../entities/Chat";
+import Message from "../entities/Message";
 
 @Entity()
 class User extends BaseEntity {

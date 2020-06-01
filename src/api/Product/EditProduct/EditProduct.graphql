@@ -1,0 +1,13 @@
+type EditProductResponse {
+  ok: Boolean!
+  error: String
+}
+
+type Mutation {
+  EditProduct(
+    id: Int!
+    name: String
+    price: String
+    description: String
+  ): EditProductResponse!
+}
