@@ -77,7 +77,7 @@ type User {
   verifiedEmail: Boolean!
   verifiedPhone: Boolean!
   password: String!
-  sex: String!
+  gender: String!
   phoneNumber: String!
   address: String!
   detailedAddress: String!

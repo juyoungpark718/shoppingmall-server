@@ -1,3 +1,4 @@
+import { userGender } from "./../types/types.d";
 import {
   BaseEntity,
   Entity,
@@ -7,12 +8,9 @@ import {
   UpdateDateColumn,
   BeforeInsert,
   BeforeUpdate,
-  OneToMany,
 } from "typeorm";
 import { IsEmail } from "class-validator";
 import { Md5 } from "ts-md5";
-import Chat from "../entities/Chat";
-import Message from "../entities/Message";
 
 @Entity()
 class User extends BaseEntity {
@@ -35,8 +33,8 @@ class User extends BaseEntity {
   @Column()
   password: string;
 
-  @Column({ type: "text" })
-  sex: string;
+  @Column({ type: "text", enum: ["MALE", "FEMALE"] })
+  gender: userGender;
 
   @Column({ type: "text" })
   phoneNumber: string;

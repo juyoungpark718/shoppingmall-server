@@ -1,6 +1,6 @@
 import { Resolvers } from "src/types/resolvers";
 import { AddProductMutationArgs, AddProductResponse } from "src/types/graph";
-import Product from "src/entities/Product";
+import Product from "../../../entities/Product";
 
 const resolvers: Resolvers = {
   Mutation: {
