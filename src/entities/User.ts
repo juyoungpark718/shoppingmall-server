@@ -1,4 +1,3 @@
-import { userGender } from "./../types/types.d";
 import {
   BaseEntity,
   Entity,
@@ -34,7 +33,7 @@ class User extends BaseEntity {
   password: string;
 
   @Column({ type: "text", enum: ["MALE", "FEMALE"] })
-  gender: userGender;
+  gender: string;
 
   @Column({ type: "text" })
   phoneNumber: string;
