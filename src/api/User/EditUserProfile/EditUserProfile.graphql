@@ -1,0 +1,11 @@
+type EditUserProfileResponse {
+  ok: Boolean!
+  error: String
+}
+
+type Mutation {
+  EditUserProfile(
+    address: String!
+    detailedAddress: String!
+  ): EditUserProfileResponse!
+}

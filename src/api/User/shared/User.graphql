@@ -8,7 +8,7 @@ type User {
   gender: String!
   phoneNumber: String!
   address: String!
-  detailedAddress: String!
+  detailedAddress: String
   dateOfBirth: String!
   isSmsReception: Boolean!
   isEmailRecption: Boolean!
