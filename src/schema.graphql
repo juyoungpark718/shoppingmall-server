@@ -1,9 +1,11 @@
-type AddProductResponse {
+type AdminSignUpReponse {
   ok: Boolean!
   error: String
+  token: String
 }
 
 type Mutation {
+  AdminSignUp(name: String!, email: String!, password: String!, phoneNumber: String!): AdminSignUpReponse!
   AddProduct(name: String!, price: Int!, description: String!): AddProductResponse!
   DeleteProduct(id: Int!): DeleteProductResponse!
   EditProduct(id: Int!, name: String, price: String, description: String): EditProductResponse!
@@ -14,6 +16,30 @@ type Mutation {
   EmailSignUp(name: String!, email: String!, password: String!, gender: String!, phoneNumber: String!, address: String!, detailedAddress: String!, dateOfBirth: String!): EmailSignUpResponse!
   StartEmailVerification(email: String!): StartEmailVerificationResponse!
   StartPhoneVerification(phoneNumber: String!): StartPhoneVerificationResponse!
+}
+
+type Admin {
+  id: Int!
+  name: String!
+  email: String!
+  password: String!
+  phoneNumber: String!
+  verified: Boolean!
+  createdAt: String!
+  updatedAt: String
+}
+
+type Query {
+  admin: Admin
+  product: Product
+  GetUserProfile: GetUserProfileResponse!
+  GetUsers: GetUsersReponse!
+  user: User
+}
+
+type AddProductResponse {
+  ok: Boolean!
+  error: String
 }
 
 type DeleteProductResponse {
@@ -33,13 +59,6 @@ type Product {
   description: String!
   createdAt: String!
   updatedAt: String
-}
-
-type Query {
-  product: Product
-  GetUserProfile: GetUserProfileResponse!
-  GetUsers: GetUsersReponse!
-  user: User
 }
 
 type CompleteEmailVerificationResponse {

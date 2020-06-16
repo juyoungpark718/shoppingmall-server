@@ -1,0 +1,14 @@
+type Admin {
+  id: Int!
+  name: String!
+  email: String!
+  password: String!
+  phoneNumber: String!
+  verified: Boolean!
+  createdAt: String!
+  updatedAt: String
+}
+
+type Query {
+  admin: Admin
+}

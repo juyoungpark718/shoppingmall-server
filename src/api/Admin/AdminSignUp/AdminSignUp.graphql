@@ -1,0 +1,14 @@
+type AdminSignUpReponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type Mutation {
+  AdminSignUp(
+    name: String!
+    email: String!
+    password: String!
+    phoneNumber: String!
+  ): AdminSignUpReponse!
+}
